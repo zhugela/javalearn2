@@ -1,0 +1,5 @@
+# Created at 2025-09-24T19:51:13.271
+Boot Manifest-JAR contains absolute paths in classpath 'D:\code\web-ai-projects\tlias-web-management\target\test-classes'
+Hint: <argLine>-Djdk.net.URLClassPath.disableClassPathURLCheck=true</argLine>
+'other' has different root
+
