@@ -8,5 +8,5 @@ public interface ClazzService {
     /**
      * 条件分页查询
      */
-    PageResult page(String namem,LocalDate begin,LocalDate end,Integer page,Integer pageSize);
+    PageResult page(String name,LocalDate begin,LocalDate end,Integer page,Integer pageSize);
 }
