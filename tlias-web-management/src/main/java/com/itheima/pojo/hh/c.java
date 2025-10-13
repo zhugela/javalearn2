@@ -1,5 +1,5 @@
 package com.itheima.pojo.hh;
 
 public class c {
-    gjg
+    sout(1);jj
 }
