@@ -11,6 +11,6 @@
             (case when begin_date > now() then '未开班' when now()> end_date then '已结课' else '在读中' end)status
             from clazz c
 
-            </where>
+
 
 </mapper>
