@@ -28,4 +28,9 @@ public interface ClazzMapper {
      */
     @Insert("update clazz set name = #{name},room = #{room},beginDate = #{beginDate},endDate = #{endDate},masterId = #{masterId},subject = #{subject},updateTime = #{updateTime} where id = #{id}")
     void update(Clazz clazz);
+    /**
+     * 删除班级
+     */
+    @Insert("delete from clazz where id = #{id}")
+    void delete(Integer id);
 }

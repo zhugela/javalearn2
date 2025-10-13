@@ -44,4 +44,12 @@ public class ClazzSeviceImpl implements ClazzService {
         clazz.setUpdateTime(LocalDateTime.now());
         clazzMapper.update(clazz);
     }
+    /**
+     * 删除班级
+     * 在页面原型中，要求如果该班级下关联的有学生，是不允许删除的，并提示错误信息："对不起, 该班级下有学生, 不能直接删除"。 (提示：可以通过自定义异常 + 全局异常处理器实现)
+     */
+    @Override
+    public void delete(Integer id) {
+        clazzMapper.delete(id);
+    }
 }
