@@ -25,11 +25,11 @@ public class ClazzController {
      * 根据条件分页查询
      */
     @GetMapping
-    public com.itheima.pojo.Result page(String name ,
-                                        @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate begin ,
-                                        @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate end,
-                                        @RequestParam(defaultValue = "1") Integer page ,
-                                        @RequestParam(defaultValue = "10")Integer pageSize){
+    public Result page(String name ,
+                       @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate begin ,
+                       @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate end,
+                       @RequestParam(defaultValue = "1") Integer page ,
+                       @RequestParam(defaultValue = "10")Integer pageSize){
         PageResult pageResult = clazzService.page(name , begin , end , page , pageSize);
         return Result.success(pageResult);
     }
