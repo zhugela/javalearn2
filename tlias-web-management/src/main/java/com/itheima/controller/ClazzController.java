@@ -15,7 +15,7 @@ import java.time.LocalDate;
 
 @RestController
 @RequestMapping("/clazzs")
-public class ClazzController {
+ public class ClazzController {
     @Autowired
     private ClazzService clazzService;
     /**
@@ -28,7 +28,7 @@ public class ClazzController {
                        @RequestParam(defaultValue = "1") Integer page ,
                        @RequestParam(defaultValue = "10")Integer pageSize){
         PageResult pageResult = clazzService.page(name , begin , end , page , pageSize);
-        return Result.success(pageResult);
+        return  Result.success(pageResult);
     }
     /*
        新增班级
@@ -39,6 +39,14 @@ public class ClazzController {
         clazzService.save(clazz);
         return Result.success();
     }
-
+    /**
+     * 根据id查询
+     */
+    @GetMapping("/{id}")
+    public Result getById(@PathVariable Integer id){
+        log.info("根据id查询：{}",id);
+        Clazz clazz = clazzService.getInfo(id);
+        return Result.success(clazz);
+    }
 
 }
