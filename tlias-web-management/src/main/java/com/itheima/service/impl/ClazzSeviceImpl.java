@@ -38,4 +38,10 @@ public class ClazzSeviceImpl implements ClazzService {
     public Clazz getInfo(Integer id) {
         return clazzMapper.getInfo(id);
     }
+
+    @Override
+    public void update(Clazz clazz) {
+        clazz.setUpdateTime(LocalDateTime.now());
+        clazzMapper.update(clazz);
+    }
 }

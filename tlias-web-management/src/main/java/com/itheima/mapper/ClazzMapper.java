@@ -23,4 +23,9 @@ public interface ClazzMapper {
      */
     @Select("select * from clazz where id = #{id}")
     Clazz getInfo(Integer id);
+    /**
+     * 修改班级
+     */
+    @Insert("update clazz set name = #{name},room = #{room},beginDate = #{beginDate},endDate = #{endDate},masterId = #{masterId},subject = #{subject},updateTime = #{updateTime} where id = #{id}")
+    void update(Clazz clazz);
 }
