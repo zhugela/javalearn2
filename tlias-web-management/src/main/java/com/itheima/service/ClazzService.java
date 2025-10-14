@@ -22,4 +22,8 @@ public interface ClazzService {
      * 修改班级
      */
     void update(Clazz clazz);
+    /**
+     * 删除班级
+     */
+    void delete(Integer id);
 }
