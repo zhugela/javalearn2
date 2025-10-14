@@ -10,6 +10,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Slf4j
 
@@ -68,5 +69,14 @@ import java.time.LocalDate;
         clazzService.delete(id);
         return Result.success();
     }
+    /**
+     * 查询所有班级
+     */
 
+     @GetMapping("/list")
+    public Result findAll(){
+        log.info("查询所有班级");
+        List<Clazz> clazzList = clazzService.findAll();
+        return Result.success(clazzList);
+    }
 }

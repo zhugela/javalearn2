@@ -4,6 +4,7 @@ import com.itheima.pojo.Clazz;
 import com.itheima.pojo.PageResult;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public interface ClazzService {
     /**
@@ -26,4 +27,8 @@ public interface ClazzService {
      * 删除班级
      */
     void delete(Integer id);
+    /**
+     * 查询所有班级
+     */
+    List<Clazz> findAll();
 }

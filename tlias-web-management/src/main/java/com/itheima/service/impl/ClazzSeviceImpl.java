@@ -52,4 +52,11 @@ public class ClazzSeviceImpl implements ClazzService {
     public void delete(Integer id) {
         clazzMapper.delete(id);
     }
+    /**
+     * 查询所有班级
+     */
+    @Override
+    public List<Clazz> findAll(){
+        return clazzMapper.findAll();
+    }
 }
