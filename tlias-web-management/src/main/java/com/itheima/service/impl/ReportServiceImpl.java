@@ -3,6 +3,7 @@ package com.itheima.service.impl;
 import com.itheima.mapper.EmpMapper;
 import com.itheima.mapper.StudentMapper;
 import com.itheima.pojo.ClazzCountOption;
+import com.itheima.mapper.StudentMapper;
 import com.itheima.pojo.JobOption;
 import com.itheima.service.ReportService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +32,9 @@ public class ReportServiceImpl implements ReportService {
     public List<Map> getEmpGenderData() {
         return empMapper.countEmpGenderData();
     }
+    /**
+     * 统计班级人数
+     */
 
     @Override
     public ClazzCountOption getStudentCountData() {
@@ -47,5 +51,12 @@ public class ReportServiceImpl implements ReportService {
             return new ClazzCountOption(clazzList, dataList);
         }
         return null;
+    }
+     /**
+     * 统计学员学历信息
+     */
+    @Override
+    public List<Map> getStudentDegreeData() {
+        return studentMapper.getStudentDegreeData();
     }
 }

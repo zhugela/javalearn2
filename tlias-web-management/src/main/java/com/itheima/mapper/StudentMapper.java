@@ -45,4 +45,10 @@ public interface StudentMapper {
      */
     @Select("select c.name cname , count(s.id) scount from clazz c  left join student s on s.clazz_id = c.id group by c.name order by count(s.id) desc ")
     List<Map<String, Object>> getStudentCount();
+    /**
+     * 查询学员学历信息
+     * @return
+     */
+
+    List<Map> getStudentDegreeData();
 }

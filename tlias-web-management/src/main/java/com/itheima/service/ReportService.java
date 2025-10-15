@@ -14,4 +14,6 @@ public interface ReportService {
     List<Map> getEmpGenderData();
 
     ClazzCountOption getStudentCountData();
+
+    List<Map> getStudentDegreeData();
 }
