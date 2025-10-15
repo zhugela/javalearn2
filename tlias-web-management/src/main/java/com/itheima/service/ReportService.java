@@ -1,5 +1,6 @@
 package com.itheima.service;
 
+import com.itheima.pojo.ClazzCountOption;
 import com.itheima.pojo.JobOption;
 
 import java.util.List;
@@ -11,4 +12,6 @@ public interface ReportService {
     JobOption getEmpJobData();
 
     List<Map> getEmpGenderData();
+
+    ClazzCountOption getStudentCountData();
 }

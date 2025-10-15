@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
+import java.util.Map;
 
 @Mapper
 public interface StudentMapper {
@@ -37,4 +38,11 @@ public interface StudentMapper {
      */
     @Update("UPDATE student SET violation_count = violation_count + 1, violation_score = violation_score + #{score}, update_time = now() WHERE id = #{id}")
     void violationHandle(Integer id, Integer score);
+
+    /**
+     * 查询班级名称数量和班级人数
+     * @return
+     */
+    @Select("select c.name cname , count(s.id) scount from clazz c  left join student s on s.clazz_id = c.id group by c.name order by count(s.id) desc ")
+    List<Map<String, Object>> getStudentCount();
 }
