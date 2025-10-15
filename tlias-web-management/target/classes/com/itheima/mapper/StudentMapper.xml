@@ -21,4 +21,25 @@
         </where>
         order by s.update_time desc
     </select>
+
+    <update id="update">
+        update student
+        <set>
+            <if test="name != null">name=#{name},</if>
+            <if test="no != null">no=#{no},</if>
+            <if test="gender != null">gender=#{gender},</if>
+            <if test="phone != null">phone=#{phone},</if>
+            <if test="idCard != null">id_card=#{idCard},</if>
+            <if test="isCollege != null">is_college=#{isCollege},</if>
+            <if test="address != null">address=#{address},</if>
+            <if test="graduationDate != null">graduation_date=#{graduationDate},</if>
+            <if test="degree != null">degree=#{degree},</if>
+            <if test="violationCount != null">violation_count=#{violationCount},</if>
+            <if test="violationScore != null">violation_score=#{violationScore},</if>
+            <if test="clazzId != null">clazz_id=#{clazzId},</if>
+            <if test="updateTime != null">update_time=#{updateTime},</if>
+        </set>
+        where id=#{id}
+    </update>
+
 </mapper>

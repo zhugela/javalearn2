@@ -2,13 +2,13 @@ package com.itheima.controller;
 
 import com.itheima.pojo.PageResult;
 import com.itheima.pojo.Result;
+import com.itheima.pojo.Student;
 import com.itheima.service.StudentService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Slf4j
 @RestController
@@ -37,6 +37,46 @@ public class StudentController {
          return Result.success(pageResult);
      }
 
-
+    /**
+     * 添加学生
+     *
+     */
+     @PostMapping
+     public Result add(@RequestBody Student student){
+         studentService.add(student);
+         return Result.success();
+     }
+     /**
+      * 根据id查询学生信息
+      */
+     @GetMapping("/{id}")
+     public Result getById(@PathVariable Integer id){
+         Student student = studentService.getById(id);
+         return Result.success(student);
+     }
+     /**
+      * 修改学生信息
+      */
+     @PutMapping
+     public Result update(@RequestBody Student student){
+         studentService.update(student);
+         return Result.success();
+     }
+     /**
+      * 删除学生
+      */
+     @DeleteMapping("/{ids}")
+     public Result deleteById(@PathVariable List<Integer> ids){
+         studentService.deleteById(ids);
+         return Result.success();
+     }
+     /**
+      * 违纪处理
+      */
+     @PostMapping("/students/violation/{id}/{score}")
+     public Result discipline(@PathVariable Integer id, @PathVariable Integer score){
+         studentService.violationHandle(id, score);
+         return Result.success();
+     }
 
 }
