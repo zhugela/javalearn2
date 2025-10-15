@@ -1,10 +1,7 @@
 package com.itheima.mapper;
 
 import com.itheima.pojo.Student;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 import java.util.Map;
@@ -49,6 +46,13 @@ public interface StudentMapper {
      * 查询学员学历信息
      * @return
      */
-
+    @MapKey("name")
     List<Map> getStudentDegreeData();
+     /**
+      * 根据班级id查询学生数量
+      * @param id
+      * @return
+      */
+     @Select("SELECT count(id) FROM student WHERE clazz_id = #{id}")
+    Integer countStudentByClazzId(Integer id);
 }
