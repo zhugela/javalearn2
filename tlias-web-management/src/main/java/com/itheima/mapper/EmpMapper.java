@@ -55,5 +55,10 @@ public interface EmpMapper {
         List<Map> countEmpGenderData();
 
         List<Emp> findAll();
+        /**
+         * 根据部门ID查询员工数量
+         */
+        @Select("select count(*) from emp where dept_id = #{deptId}")
+        Integer countEmpByDeptId(Integer deptId);
 }
 
