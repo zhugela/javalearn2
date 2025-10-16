@@ -108,5 +108,16 @@ public class EmpServiceImpl implements EmpService{
     public List<Emp> list() {
     return  empMapper.findAll();
     }
+
+    @Override
+    public LoginInfo login(Emp emp) {
+        Emp empLogin = empMapper.getUsernameandPassword(emp);
+        if(empLogin!=null){
+            LoginInfo loginInfo = new LoginInfo(empLogin.getId(), empLogin.getUsername(), empLogin.getName(), null);
+            return loginInfo;
+        }
+    }
+
+
 }
 
